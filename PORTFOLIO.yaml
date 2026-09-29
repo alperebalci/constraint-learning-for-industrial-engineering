@@ -1,0 +1,12 @@
+schema_version: 1
+repository: constraint-learning-for-industrial-engineering
+role: standalone
+axis: standalone
+area: constraint-learning
+status: active
+owner: jorsacademy
+projects: []
+conventions:
+  provenance_records: false
+  reproducibility_expected: true
+  benchmark_assumptions_documented: true
