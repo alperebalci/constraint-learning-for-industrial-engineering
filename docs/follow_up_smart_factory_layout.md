@@ -1,6 +1,6 @@
 # Follow-up Study: Smart Factory Layout Optimization with Learned Constraints
 
-**Status:** Proposed research extension. This document is a project specification, not an implemented benchmark.
+**Status:** Implemented research extension. Executable code is in `case_studies/11_smart_factory_layout/` with automated coverage in `tests/test_smart_factory_layout_case_study.py`.
 
 ## Research question
 
@@ -131,4 +131,4 @@ Only if justified, add airflow, heat, contamination or vibration fields and test
 
 ## Relationship to this repository
 
-This follow-up extends the repository from process, warehouse, scheduling and design-space constraint learning into **spatial facility design**. It is intentionally specified separately from the existing ten executable case studies so the current benchmark remains reproducible and feature-complete.
+This extension expands the repository from process, warehouse, scheduling and design-space constraint learning into **spatial facility design**. The executable benchmark is intentionally small and exhaustive so hard-layout feasibility, learned operational acceptability and downstream optimization can all be audited directly.
