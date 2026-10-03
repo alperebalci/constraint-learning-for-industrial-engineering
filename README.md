@@ -329,6 +329,11 @@ In real industrial applications, learned constraints should complement rather th
 
 Ten industrial engineering applications are organized under `case_studies/`, and all ten are executable computational experiments with automated test coverage. Cases 07-10 use the shared calibrated tabular learner and explicitly separate learned operational feasibility from deterministic policy or engineering constraints.
 
+## Proposed follow-up study
+
+A separate research specification for **smart factory layout optimization with learned operational constraints** is available in [`docs/follow_up_smart_factory_layout.md`](docs/follow_up_smart_factory_layout.md). It keeps validated spatial/safety rules explicit and treats learned feasibility as a risk-controlled hybrid layer rather than an engineering certificate.
+
+
 ## License
 
 This project is licensed under the PolyForm Noncommercial License 1.0.0. Commercial use is not permitted.
