@@ -6,7 +6,7 @@
 This repository is intentionally maintained as a standalone primary repository in the consolidated Jors Academy portfolio. It is not used as a container for other projects.
 <!-- portfolio-umbrella:end -->
 
-This repository demonstrates how data-driven constraint learning can be applied to industrial engineering problems. All ten case studies are executable: manufacturing process constraint recovery, energy-efficient machine settings, assembly quality control, supply-chain feasibility, warehouse slotting, job-shop scheduling, product design space, workforce shift scheduling, inventory control, and multi-product line balancing.
+This repository demonstrates how data-driven constraint learning can be applied to industrial engineering problems. All eleven case studies are executable: manufacturing process constraint recovery, energy-efficient machine settings, assembly quality control, supply-chain feasibility, warehouse slotting, job-shop scheduling, product design space, workforce shift scheduling, inventory control, multi-product line balancing, and smart-factory layout optimization.
 
 For a concise technical taxonomy—what constraint learning is, when it counts as ML, how it differs from constraint acquisition, and how GPR, Bayesian optimization, BNNs, GNNs, conformal prediction, and online learning fit into manufacturing optimization—see [`docs/constraint_learning_taxonomy.md`](docs/constraint_learning_taxonomy.md).
 
@@ -69,6 +69,10 @@ The line-balancing workflow learns product-mix and capacity conditions associate
 
 Cases 07-10 share a reusable calibrated `TabularConstraintLearner` and the same hard-constraint-plus-learned-probability optimization semantics.
 
+### 11. Smart factory layout optimization
+
+The smart-factory layout workflow enumerates a small discrete facility-layout design space under explicit geometry and safety rules, learns an operational-acceptability constraint only from hard-feasible historical layouts, and minimizes material-handling cost over candidates that pass the learned probability threshold. The benchmark keeps fire-exit, dock-access and one-department-per-cell rules deterministic while learning residual flow/adjacency/congestion structure. It includes reproducible data generation, held-out false-feasible diagnostics, exhaustive candidate verification and automated tests.
+
 ## Repository structure
 
 ```text
@@ -117,7 +121,7 @@ constraint-learning-for-industrial-engineering/
 │   ├── 07_product_design_space/
 │   ├── 08_workforce_shift_scheduling/
 │   ├── 09_inventory_control/
-│   └── 10_multi_product_line_balancing/
+│   ├── 10_multi_product_line_balancing/\n│   └── 11_smart_factory_layout/
 └── tests/
     ├── test_constraint_learner.py
     ├── test_energy_efficiency_case_study.py
@@ -148,7 +152,7 @@ python case_studies/06_job_shop_scheduling/run_case_study.py
 python case_studies/07_product_design_space/run_case_study.py
 python case_studies/08_workforce_shift_scheduling/run_case_study.py
 python case_studies/09_inventory_control/run_case_study.py
-python case_studies/10_multi_product_line_balancing/run_case_study.py
+python case_studies/10_multi_product_line_balancing/run_case_study.py\npython case_studies/11_smart_factory_layout/run_case_study.py
 ```
 
 The executable case studies write evaluation figures into `figures/`.
@@ -327,11 +331,11 @@ In real industrial applications, learned constraints should complement rather th
 
 ## Case studies
 
-Ten industrial engineering applications are organized under `case_studies/`, and all ten are executable computational experiments with automated test coverage. Cases 07-10 use the shared calibrated tabular learner and explicitly separate learned operational feasibility from deterministic policy or engineering constraints.
+Eleven industrial engineering applications are organized under `case_studies/`, and all eleven are executable computational experiments with automated test coverage. Cases 07-10 use the shared calibrated tabular learner and explicitly separate learned operational feasibility from deterministic policy or engineering constraints.
 
-## Proposed follow-up study
+## Smart-factory layout extension
 
-A separate research specification for **smart factory layout optimization with learned operational constraints** is available in [`docs/follow_up_smart_factory_layout.md`](docs/follow_up_smart_factory_layout.md). It keeps validated spatial/safety rules explicit and treats learned feasibility as a risk-controlled hybrid layer rather than an engineering certificate.
+The **smart factory layout optimization with learned operational constraints** study is now implemented under [`case_studies/11_smart_factory_layout/`](case_studies/11_smart_factory_layout/). The design specification remains in [`docs/follow_up_smart_factory_layout.md`](docs/follow_up_smart_factory_layout.md). Validated spatial/safety rules stay explicit, while learned feasibility is used only as a calibrated hybrid screening layer.
 
 
 ## License
